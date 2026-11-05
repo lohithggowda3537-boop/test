@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gundi Watch — Bengaluru's Pothole Tracker</title>
+  <link rel="stylesheet" href="/assets/index.css">
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><span class="logo">⌖</span><span>Gundi Watch<small id="brand-sub">Bengaluru's
+              Pothole Tracker</small></span></a>
+        <div class="links"><a href="#home" data-en="Home" data-kn="ಮುಖಪುಟ">Home</a><a href="#report" data-en="Report"
+            data-kn="ವರದಿ">Report</a><a href="#track" data-en="Track" data-kn="ಟ್ರ್ಯಾಕ್">Track</a><a href="#authorities"
+            data-en="Authorities" data-kn="ಅಧಿಕಾರಿಗಳು">Authorities</a></div>
+        <div class="nav-actions"><button class="lang" id="langBtn">ಕನ್ನಡ</button><a class="btn btn-lime" href="#report"
+            data-en="＋ Report pothole" data-kn="＋ ಗುಂಡಿ ವರದಿ">＋ Report pothole</a></div>
+      </nav>
+      <div class="hero-inner" id="home">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow" data-en="Civic action starts here" data-kn="ನಾಗರಿಕರ ಕ್ರಮ ಇಲ್ಲಿಂದ ಪ್ರಾರಂಭ">Civic action
+              starts here</div>
+            <h1 data-en-html="No more potholes in <span>Bengaluru.</span>"
+              data-kn-html="ಬೆಂಗಳೂರಿನಲ್ಲಿ <span>ಗುಂಡಿಗಳಿಲ್ಲದ</span> ರಸ್ತೆಗಳು.">No more potholes in
+              <span>Bengaluru.</span></h1>
+            <p data-en="Spot a pothole. Report it. Track the action. Gundi Watch helps you report road damage, find the right authority, and make Bengaluru's roads safer — together."
+              data-kn="ರಸ್ತೆ ಗುಂಡಿಯನ್ನು ಗುರುತಿಸಿ. ವರದಿ ಮಾಡಿ. ಕ್ರಮವನ್ನು ಗಮನಿಸಿ. ಸರಿಯಾದ ಅಧಿಕಾರಿಯನ್ನು ಹುಡುಕಿ ಬೆಂಗಳೂರಿನ ರಸ್ತೆಗಳನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸಲು ಕೈಜೋಡಿಸಿ.">
+              Spot a pothole. Report it. Track the action. Gundi Watch helps you report road damage, find the right
+              authority, and make Bengaluru's roads safer — together.</p>
+            <div class="hero-actions"><a class="btn btn-lime" href="#report">▣ <span data-en="Report a pothole"
+                  data-kn="ಗುಂಡಿ ವರದಿ ಮಾಡಿ">Report a pothole</span></a><a class="btn btn-outline" href="#track">⌕ <span
+                  data-en="Track your report" data-kn="ನಿಮ್ಮ ವರದಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ">Track your report</span></a></div>
+            <p class="hero-note" data-en="Built for Bengaluru · English & Kannada · Community-powered"
+              data-kn="ಬೆಂಗಳೂರಿಗಾಗಿ · ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ · ಸಮುದಾಯದ ಸಹಕಾರ">Built for Bengaluru · English & Kannada ·
+              Community-powered</p>
+          </div>
+          <div class="hero-visual">
+            <div class="road-card">
+              <div class="mini-map">
+                <span class="map-label" style="top:18%;left:15%">Malleshwaram</span><span class="map-label"
+                  style="top:50%;left:42%">BENGALURU</span><span class="map-label"
+                  style="bottom:23%;right:9%">Koramangala</span>
+                <i class="pin red" style="top:22%;left:55%"></i><i class="pin yellow" style="top:43%;left:24%"></i><i
+                  class="pin green" style="top:57%;left:60%"></i><i class="pin red" style="top:70%;left:38%"></i><i
+                  class="pin yellow" style="top:30%;left:78%"></i><i class="pin green" style="top:78%;left:77%"></i>
+                <div class="map-legend"><span><i class="dot" style="background:#e35d52"></i>Open</span><span><i
+                      class="dot" style="background:#e6a23c"></i>In progress</span><span><i class="dot"
+                      style="background:#2c9a63"></i>Resolved</span></div>
+              </div>
+            </div>
+            <div class="floating"><b id="hero-count">Live community reports</b><small>Every report can make a
+                difference</small></div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="stat-icon">◎</span><span><b id="stat-total">2,845</b><small>Total
+                reports</small></span></div>
+          <div class="stat"><span class="stat-icon">✓</span><span><b id="stat-resolved">1,982</b><small>Resolved
+                reports</small></span></div>
+          <div class="stat"><span class="stat-icon">⌁</span><span><b id="stat-3">3,421 km</b><small
+                id="stat-3-label">Roads monitored</small></span></div>
+          <div class="stat"><span class="stat-icon">⌖</span><span><b>Bengaluru</b><small>One city, safer
+                roads</small></span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Simple. Transparent. Together.</div>
+            <h2>Turn a road problem into action.</h2>
+            <p class="sub">A simple way for residents to report potholes and follow up with the right authority.</p>
+          </div><a class="btn btn-green" href="#report">Start a report →</a>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">⌖</div>
+            <h3>Pin the location</h3>
+            <p>Enter a road, landmark, or neighbourhood so the issue can be identified clearly.</p><a class="text-link"
+              href="#report">Choose location ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">▧</div>
+            <h3>Add a photo</h3>
+            <p>Upload a picture and a short description to help people understand the road damage.</p><a
+              class="text-link" href="#report">Upload evidence ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-icon">✓</div>
+            <h3>Track the action</h3>
+            <p>Keep your report ID and check the status as your issue moves toward resolution.</p><a class="text-link"
+              href="#track">Track a report ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="report" style="background:#edf3eb">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Make your street safer</div>
+            <h2>Report a pothole</h2>
+            <p class="sub" id="reportSub">Share the location and details. This demo saves reports in your browser only.
+            </p>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Before you submit</h3>
+            <p class="sub">A clear location and photo help describe the problem. Please stay safe and do not stand in
+              traffic to take a photo.</p>
+            <div class="authority"><span class="badge">01</span>
+              <div><b>Choose a clear location</b><small>Road name, area, or nearby landmark</small></div>
+            </div>
+            <div class="authority"><span class="badge">02</span>
+              <div><b>Add useful details</b><small>Approximate size and risk to road users</small></div>
+            </div>
+            <div class="authority"><span class="badge">03</span>
+              <div><b>Keep your report ID</b><small>Use it in the Track section below</small></div>
+            </div>
+            <div class="notice" id="modeNotice" style="display:block">Demo mode: no complaint is sent to a government
+              department.</div>
+          </div>
+          <form class="panel" id="reportForm">
+            <div class="form-grid">
+              <div class="field"><label for="area">Area / neighbourhood *</label><input id="area" required
+                  placeholder="e.g. Koramangala 5th Block"></div>
+              <div class="field"><label for="road">Road / landmark *</label><input id="road" required
+                  placeholder="e.g. Near bus stop"></div>
+            </div>
+            <div class="field"><label for="severity">Severity</label><select id="severity">
+                <option value="medium">Medium — needs repair</option>
+                <option value="high">High — dangerous for traffic</option>
+                <option value="low">Low — small pothole</option>
+              </select></div>
+            <div class="field"><label for="photo">Pothole photo (optional)</label>
+              <div class="upload">▧<br><b>Choose a photo from your device</b><br><input id="photo" type="file"
+                  accept="image/*"><img class="preview" id="photoPreview" alt="Selected pothole preview"></div>
+            </div>
+            <div class="field"><label for="details">Additional details</label><textarea id="details"
+                placeholder="Describe the pothole or nearby landmark..."></textarea></div>
+            <button class="btn btn-green" id="submitBtn" type="submit" style="width:100%">Submit demo report →</button>
+            <div class="notice" id="submitNotice" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="track">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Stay in the loop</div>
+            <h2>Track your report</h2>
+            <p class="sub" id="trackSub">Enter the report ID generated on this device to find your saved demo report.
+            </p>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Find a report</h3>
+            <div class="field"><label for="trackId">Report ID</label><input id="trackId" placeholder="e.g. GW-123456">
+            </div><button class="btn btn-green" id="trackBtn" type="button">Search report →</button>
+            <div class="notice" id="trackNotice"></div>
+          </div>
+          <div class="panel">
+            <h3>Recent reports</h3>
+            <div class="reports" id="reportsList">
+              <div class="report">
+                <div class="thumb">⌖</div>
+                <div class="report-info"><b>Outer Ring Road</b><small>Demo example · Bengaluru</small></div><span
+                  class="status open">Open</span>
+              </div>
+              <div class="report">
+                <div class="thumb">⌖</div>
+                <div class="report-info"><b>Koramangala 5th Block</b><small>Demo example · Bengaluru</small></div><span
+                  class="status">In progress</span>
+              </div>
+              <div class="report">
+                <div class="thumb">⌖</div>
+                <div class="report-info"><b>Jayanagar 9th Block</b><small>Demo example · Bengaluru</small></div><span
+                  class="status resolved">Resolved</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="authorities" style="background:#edf3eb">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Know who to contact</div>
+            <h2>Find the right authority</h2>
+            <p class="sub">Use your area and road type to begin identifying the responsible department. Confirm
+              jurisdiction before filing an official complaint.</p>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Look up your area</h3>
+            <div class="field"><label for="authorityArea">Area or landmark</label><input id="authorityArea"
+                placeholder="e.g. Indiranagar"></div>
+            <div class="field"><label for="roadType">Road type</label><select id="roadType">
+                <option value="city">City / local road</option>
+                <option value="national">National Highway</option>
+                <option value="state">State Highway / major road</option>
+                <option value="metro">Metro construction area</option>
+              </select></div><button class="btn btn-green" id="authorityBtn">Find guidance →</button>
+            <div class="notice" id="authorityNotice"></div>
+          </div>
+          <div class="panel">
+            <h3>Common road authorities</h3>
+            <div class="authority"><span class="badge">BBMP</span>
+              <div><b>Bruhat Bengaluru Mahanagara Palike</b><small>Many city roads and local civic issues</small></div>
+            </div>
+            <div class="authority"><span class="badge">PWD</span>
+              <div><b>Karnataka Public Works Department</b><small>Some state roads and major routes</small></div>
+            </div>
+            <div class="authority"><span class="badge">NHAI</span>
+              <div><b>National Highways Authority of India</b><small>National highway sections under its
+                  jurisdiction</small></div>
+            </div>
+            <div class="authority"><span class="badge">BMRCL</span>
+              <div><b>Bengaluru Metro Rail Corporation</b><small>Metro works and project-related areas</small></div>
+            </div>
+            <p class="sub" style="font-size:11px;margin-top:14px">This is general guidance, not a verified jurisdiction
+              lookup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-row"><a class="brand" href="#home"><span class="logo">⌖</span><span>Gundi
+            Watch<small>Bengaluru's Pothole Tracker</small></span></a>
+        <p>Small actions. Big changes. Safer roads for Bengaluru.</p><a class="btn btn-lime" href="#report">Report a
+          pothole ↑</a>
+      </div>
+      <div class="smallprint" id="smallprint">Gundi Watch concept demo · Reports stay in this browser · Not an official
+        government service</div>
+    </div>
+  </footer>
+  <script src="/assets/app.js" defer></script>
+</body>
+
+</html>
