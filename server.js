@@ -37,7 +37,7 @@ function formatReport(report) {
     date: report.createdAt.toLocaleString(),
     photo: report.photoPath
       ? `/uploads/${encodeURIComponent(report.photoPath)}`
-      : report.photo ? `data:image/jpeg;base64,${report.photo.toString('base64')}` : null,
+      : report.photo ? `/api/reports/${encodeURIComponent(report.publicId)}/photo` : null,
   };
 }
 
@@ -46,6 +46,15 @@ app.get('/', (_req, res) => {
 });
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/uploads', express.static(uploadDirectory, { dotfiles: 'deny', index: false }));
+
+app.use('/api', (req, res, next) => {
+  connectToDatabase()
+    .then(({ reports }) => {
+      app.locals.reports = reports;
+      next();
+    })
+    .catch(next);
+});
 
 app.get('/api/reports', asyncRoute(async (req, res) => {
   const requestedLimit = Number.parseInt(req.query.limit, 10);
@@ -68,6 +77,25 @@ app.get('/api/reports/:id', asyncRoute(async (req, res) => {
     { projection: { _id: 0 } },
   );
   res.json(report ? { ...formatReport(report), found: true } : { found: false });
+}));
+
+app.get('/api/reports/:id/photo', asyncRoute(async (req, res) => {
+  if (!/^GW-\d{6}$/.test(req.params.id)) {
+    res.status(400).json({ error: 'Invalid report ID.' });
+    return;
+  }
+  const report = await app.locals.reports.findOne(
+    { publicId: req.params.id },
+    { projection: { _id: 0, photo: 1 } },
+  );
+  if (!report || !report.photo) {
+    res.status(404).json({ error: 'Photo not found.' });
+    return;
+  }
+  const photo = Buffer.isBuffer(report.photo)
+    ? report.photo
+    : report.photo.buffer.subarray(0, report.photo.position);
+  res.type('image/jpeg').send(photo);
 }));
 
 app.post('/api/reports', upload.single('photo'), asyncRoute(async (req, res) => {
@@ -98,12 +126,7 @@ app.post('/api/reports', upload.single('photo'), asyncRoute(async (req, res) => 
     createdAt: new Date(),
   };
   if (req.file) {
-    report.photoPath = `${crypto.randomUUID()}.jpg`;
-    await fs.writeFile(
-      path.join(uploadDirectory, report.photoPath),
-      req.file.buffer,
-      { flag: 'wx' },
-    );
+    report.photo = req.file.buffer;
   }
 
   for (let attempt = 0; attempt < 5; attempt += 1) {
@@ -114,18 +137,8 @@ app.post('/api/reports', upload.single('photo'), asyncRoute(async (req, res) => 
       return;
     } catch (error) {
       if (error.code === 11000) continue;
-      if (report.photoPath) {
-        await fs.unlink(path.join(uploadDirectory, report.photoPath)).catch((cleanupError) => {
-          console.error('Could not remove photo after report save failed:', cleanupError);
-        });
-      }
       throw error;
     }
-  }
-  if (report.photoPath) {
-    await fs.unlink(path.join(uploadDirectory, report.photoPath)).catch((cleanupError) => {
-      console.error('Could not remove photo after report ID retries:', cleanupError);
-    });
   }
   throw new Error('Could not generate a unique report ID.');
 }));
@@ -161,7 +174,11 @@ async function start() {
   });
 }
 
-start().catch((error) => {
-  console.error('Could not start the server:', error);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  start().catch((error) => {
+    console.error('Could not start the server:', error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = app;
