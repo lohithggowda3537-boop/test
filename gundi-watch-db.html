@@ -859,7 +859,7 @@
   <header class="hero">
     <div class="wrap">
       <nav class="nav">
-        <a class="brand" href="#home"><span class="logo">⌖</span><span>Gundi Watch<small id="brand-sub">Bengaluru's
+        <a class="brand" href="#home"><span class="logo">⌖</span><span>Clean Road<small id="brand-sub">Bengaluru's
               Pothole Tracker</small></span></a>
         <div class="links"><a href="#home" data-en="Home" data-kn="ಮುಖಪುಟ">Home</a><a href="#report" data-en="Report"
             data-kn="ವರದಿ">Report</a><a href="#track" data-en="Track" data-kn="ಟ್ರ್ಯಾಕ್">Track</a><a href="#authorities"
@@ -1019,22 +1019,8 @@
           </div>
           <div class="panel">
             <h3>Recent reports</h3>
-            <div class="reports" id="reportsList">
-              <div class="report">
-                <div class="thumb">⌖</div>
-                <div class="report-info"><b>Outer Ring Road</b><small>Demo example · Bengaluru</small></div><span
-                  class="status open">Open</span>
-              </div>
-              <div class="report">
-                <div class="thumb">⌖</div>
-                <div class="report-info"><b>Koramangala 5th Block</b><small>Demo example · Bengaluru</small></div><span
-                  class="status">In progress</span>
-              </div>
-              <div class="report">
-                <div class="thumb">⌖</div>
-                <div class="report-info"><b>Jayanagar 9th Block</b><small>Demo example · Bengaluru</small></div><span
-                  class="status resolved">Resolved</span>
-              </div>
+            <div class="reports" id="reportsList" aria-live="polite">
+              <p class="sub" role="status">Loading recent reports…</p>
             </div>
           </div>
         </div>

@@ -148,13 +148,27 @@ async function renderReports() {
       const thumbnail = report.photo
         ? `<img src="${escapeHtml(report.photo)}" alt="" loading="lazy">`
         : '⌖';
-      return `<div class="report"><div class="thumb">${thumbnail}</div><div class="report-info"><b>${escapeHtml(report.road)}, ${escapeHtml(report.area)}</b><small>${escapeHtml(report.id)} · ${escapeHtml(report.date)}</small></div><span class="${currentStatus[1]}">${currentStatus[0]}</span></div>`;
+      return `<a class="report" href="#track" data-report-id="${escapeHtml(report.id)}"><div class="thumb">${thumbnail}</div><div class="report-info"><b>${escapeHtml(report.road)}, ${escapeHtml(report.area)}</b><small>${escapeHtml(report.id)} · ${escapeHtml(report.date)}</small></div><span class="${currentStatus[1]}">${currentStatus[0]}</span></a>`;
     }).join('');
   } catch (error) {
     console.error(error);
-    list.innerHTML = '<p class="sub">Could not load reports right now.</p>';
+    list.innerHTML = '<p class="sub">Could not load recent reports.</p><button class="btn btn-light" type="button" data-retry-reports>Try again</button>';
   }
 }
+
+$('#reportsList').addEventListener('click', (event) => {
+  const retryButton = event.target.closest('[data-retry-reports]');
+  if (retryButton) {
+    renderReports();
+    return;
+  }
+
+  const reportLink = event.target.closest('[data-report-id]');
+  if (reportLink) {
+    $('#trackId').value = reportLink.dataset.reportId;
+    $('#trackBtn').click();
+  }
+});
 
 async function renderStats() {
   try {
